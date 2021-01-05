@@ -1,4 +1,4 @@
 
-  php test.ph
+  php test.php
   
 Then follow instructions
