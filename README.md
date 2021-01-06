@@ -1,4 +1,4 @@
 
-  php test.php
+  php start.php
   
 Then follow instructions
