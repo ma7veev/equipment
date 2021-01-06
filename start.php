@@ -60,7 +60,7 @@ print "\n\nУмовна оптимізація:\n";
 $P = $St[ 0 ];
 $r0 = $Lt[ 0 ];
 
-$usl_opt = [];
+$cond_opt = [];
 $c = 0;
 
 $r = 0;
@@ -89,21 +89,21 @@ for ($k = $T; $k >= 1; $k --) {
         }
     }
     print "\n\n";
-    $usl_opt[ $k ] = $row;
+    $cond_opt[ $k ] = $row;
     $c ++;
 }
 
 print "\n\nБезумовна оптимізація:\n";
 $t = 1;
 
-asort($usl_opt);
-$bezus_opt = [];
-foreach ($usl_opt as $k => $s) {
+asort($cond_opt);
+$uncond_opt = [];
+foreach ($cond_opt as $k => $s) {
     print "k = $k\n";
     print "Вік обладнання $t років\n";
     if ($s[ $t ][ 1 ] == 1) {
         print "Замінюємо\n\n";
-        $bezus_opt[] = $k;
+        $uncond_opt[] = $k;
         $t = 0;
     } else {
         print "Зберігаємо\n\n";
@@ -111,4 +111,4 @@ foreach ($usl_opt as $k => $s) {
 
     $t ++;
 }
-print "Таким чином заміну обладнання за $T років експлуатаціі треба прободити на початку " . implode(", ", $bezus_opt) . " року\n";
+print "Таким чином заміну обладнання за $T років експлуатаціі треба прободити на початку " . implode(", ", $uncond_opt) . " року\n";
